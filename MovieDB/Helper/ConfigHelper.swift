@@ -8,29 +8,30 @@
 import Foundation
 
 public enum ConfigKey: String {
-  case APIKey
-  
-  var value: String {
-    return self.rawValue
-  }
+    case APIKey
+    case BaseURL
+    
+    var value: String {
+        return self.rawValue
+    }
 }
 
 public protocol ConfigHelperProtocol: AnyObject {
-  func getValue(configKey: ConfigKey) -> String
+    func getValue(configKey: ConfigKey) -> String
 }
 
 public class ConfigHelper: ConfigHelperProtocol {
-  
-  public static let shared = ConfigHelper()
-  private var dictionary: [String: Any]?
-  
-  public init() {
-    dictionary = Bundle.main.infoDictionary
-  }
-  
-  public func getValue(configKey: ConfigKey) -> String {
-    guard let configValue = dictionary?[configKey.value] as? String else { return .empty }
-    return configValue.replacingOccurrences(of: "\\", with: String.empty)
-  }
+    
+    public static let shared = ConfigHelper()
+    private var dictionary: [String: Any]?
+    
+    public init() {
+        dictionary = Bundle.main.infoDictionary
+    }
+    
+    public func getValue(configKey: ConfigKey) -> String {
+        guard let configValue = dictionary?[configKey.value] as? String else { return .empty }
+        return configValue.replacingOccurrences(of: "\\", with: String.empty)
+    }
 }
 

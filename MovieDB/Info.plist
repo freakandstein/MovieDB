@@ -4,6 +4,8 @@
 <dict>
 	<key>APIKey</key>
 	<string>$(API_KEY)</string>
+	<key>BaseURL</key>
+	<string>$(BASE_URL)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
