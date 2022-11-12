@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+class SplashInteractor: SplashPresenterToInteractor {
+    var networkService: NetworkService = NetworkService.shared
+    var presenter: SplashInteractorToPresenter?
+}

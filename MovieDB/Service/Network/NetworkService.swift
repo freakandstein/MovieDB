@@ -67,7 +67,7 @@ class Provider: NetworkServiceProtocol {
 }
 
 class NetworkService {
-    static var instance = NetworkService()
+    static var shared = NetworkService()
     private var delegate: NetworkServiceProtocol?
     
     init(networkServiceProtocol: NetworkServiceProtocol = Provider()) {

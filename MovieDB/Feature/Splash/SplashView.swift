@@ -7,12 +7,15 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class SplashView: UIViewController {
     
     //MARK: Properties
     private let bundle = Bundle(for: SplashView.self)
     private let className = String(describing: SplashView.self)
+    private var loader: LoaderView?
+    
     var presenter: SplashViewToPresenter?
     
     //MARK: IBoutlets
@@ -21,6 +24,10 @@ class SplashView: UIViewController {
     //MARK: Functions
     init() {
         super.init(nibName: className, bundle: bundle)
+        let view = self
+        let presenter = SplashPresenter()
+        presenter.view = view
+        view.presenter = presenter
     }
     
     required init?(coder: NSCoder) {
@@ -30,18 +37,28 @@ class SplashView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let apiKey = ConfigHelper.shared.getValue(configKey: .APIKey)
-        print("#API Key: \(apiKey)")
+        presenter?.viewDidLoad()
     }
+    
 }
 
 extension SplashView: SplashPresenterToView {
     
     func showLoading() {
-        
+        loader = LoaderView(frame: CGRect(x: .zero, y: .zero, width: 64, height: 64))
+        if let loader = loader {
+            self.view.addSubview(loader)
+            loader.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                loader.widthAnchor.constraint(equalToConstant: loader.frame.width),
+                loader.heightAnchor.constraint(equalToConstant: loader.frame.height),
+                loader.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                loader.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            ])
+        }
     }
     
     func hideLoading() {
-        
+        loader?.removeFromSuperview()
     }
 }

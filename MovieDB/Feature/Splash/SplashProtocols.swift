@@ -24,18 +24,10 @@ protocol SplashPresenterToView {
 
 protocol SplashPresenterToInteractor {
     var presenter: SplashInteractorToPresenter? { get set }
-//    var networkService: NetworkService { get set }
-//    var dataService: DataServiceProtocol { get set }
+    var networkService: NetworkService { get set }
     
-//    func getCurrencyIndex()
-//    func getCurrentLocation()
-//    func getDailyCurrencyIndex()
 }
 
 protocol SplashInteractorToPresenter {
-//    var currentPrice: CurrentPriceResponse? { get set }
-//    var listPriceIndex: [PriceIndex] { get set }
-    
-//    func didGetCurrencyIndexSuccess(response: CurrentPriceResponse)
-//    func didGetCurrencyIndexFailure(error: ErrorResponse)
+
 }
