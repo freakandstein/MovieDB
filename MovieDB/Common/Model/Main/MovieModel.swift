@@ -18,7 +18,6 @@ struct MovieModel: Codable {
         case totalPage = "total_page"
         case totalResult = "total_result"
     }
-    
 }
 
 struct MovieDetailModel: Codable {
