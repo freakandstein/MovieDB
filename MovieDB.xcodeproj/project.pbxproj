@@ -19,6 +19,11 @@
 		52E70A4E291F53B60056C8F5 /* MovieDB.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 52E70A4D291F53B60056C8F5 /* MovieDB.xcconfig */; };
 		52E70A51291F55480056C8F5 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E70A50291F55480056C8F5 /* ConfigHelper.swift */; };
 		52E70A54291F55FE0056C8F5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E70A53291F55FE0056C8F5 /* String+Extension.swift */; };
+		52E70A57291F5C9B0056C8F5 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 52E70A56291F5C9B0056C8F5 /* Moya */; };
+		52E70A59291F5CC00056C8F5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E70A58291F5CC00056C8F5 /* NetworkService.swift */; };
+		52E70A5E291F5DA40056C8F5 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E70A5D291F5DA40056C8F5 /* ErrorModel.swift */; };
+		52E70A63291F5EBE0056C8F5 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E70A62291F5EBE0056C8F5 /* MainService.swift */; };
+		52E70A66291F9C250056C8F5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 52E70A65291F9C250056C8F5 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,9 @@
 		52E70A4D291F53B60056C8F5 /* MovieDB.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MovieDB.xcconfig; sourceTree = "<group>"; };
 		52E70A50291F55480056C8F5 /* ConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigHelper.swift; sourceTree = "<group>"; };
 		52E70A53291F55FE0056C8F5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		52E70A58291F5CC00056C8F5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		52E70A5D291F5DA40056C8F5 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		52E70A62291F5EBE0056C8F5 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E70A66291F9C250056C8F5 /* Kingfisher in Frameworks */,
+				52E70A57291F5C9B0056C8F5 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +78,8 @@
 		5218DEB4291F3D5700EDC095 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				52E70A5B291F5D6C0056C8F5 /* Common */,
+				52E70A5A291F5CCA0056C8F5 /* Service */,
 				52E70A52291F55820056C8F5 /* Extension */,
 				52E70A4F291F55360056C8F5 /* Helper */,
 				52E70A4C291F538A0056C8F5 /* Config */,
@@ -133,6 +145,47 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		52E70A5A291F5CCA0056C8F5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				52E70A5F291F5E2D0056C8F5 /* Network */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		52E70A5B291F5D6C0056C8F5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				52E70A5C291F5D7A0056C8F5 /* Model */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		52E70A5C291F5D7A0056C8F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52E70A5D291F5DA40056C8F5 /* ErrorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52E70A5F291F5E2D0056C8F5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				52E70A61291F5E770056C8F5 /* FeatureService */,
+				52E70A58291F5CC00056C8F5 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		52E70A61291F5E770056C8F5 /* FeatureService */ = {
+			isa = PBXGroup;
+			children = (
+				52E70A62291F5EBE0056C8F5 /* MainService.swift */,
+			);
+			path = FeatureService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +202,10 @@
 			dependencies = (
 			);
 			name = MovieDB;
+			packageProductDependencies = (
+				52E70A56291F5C9B0056C8F5 /* Moya */,
+				52E70A65291F9C250056C8F5 /* Kingfisher */,
+			);
 			productName = MovieDB;
 			productReference = 5218DEB2291F3D5700EDC095 /* MovieDB.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +234,10 @@
 				Base,
 			);
 			mainGroup = 5218DEA9291F3D5600EDC095;
+			packageReferences = (
+				52E70A55291F5C9B0056C8F5 /* XCRemoteSwiftPackageReference "Moya" */,
+				52E70A64291F9C250056C8F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 5218DEB3291F3D5700EDC095 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -208,9 +269,12 @@
 			files = (
 				52E70A4B291F4E870056C8F5 /* SplashProtocols.swift in Sources */,
 				52E70A54291F55FE0056C8F5 /* String+Extension.swift in Sources */,
+				52E70A59291F5CC00056C8F5 /* NetworkService.swift in Sources */,
 				5218DECC291F440100EDC095 /* MainView.swift in Sources */,
 				52E70A49291F4C760056C8F5 /* SplashView.swift in Sources */,
 				5218DEB6291F3D5700EDC095 /* AppDelegate.swift in Sources */,
+				52E70A63291F5EBE0056C8F5 /* MainService.swift in Sources */,
+				52E70A5E291F5DA40056C8F5 /* ErrorModel.swift in Sources */,
 				5218DEB8291F3D5700EDC095 /* SceneDelegate.swift in Sources */,
 				52E70A51291F55480056C8F5 /* ConfigHelper.swift in Sources */,
 			);
@@ -422,6 +486,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52E70A55291F5C9B0056C8F5 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.0;
+			};
+		};
+		52E70A64291F9C250056C8F5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52E70A56291F5C9B0056C8F5 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52E70A55291F5C9B0056C8F5 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		52E70A65291F9C250056C8F5 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52E70A64291F9C250056C8F5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5218DEAA291F3D5600EDC095 /* Project object */;
 }

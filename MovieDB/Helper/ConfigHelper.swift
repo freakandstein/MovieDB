@@ -10,6 +10,7 @@ import Foundation
 public enum ConfigKey: String {
     case APIKey
     case BaseURL
+    case BaseURLImage
     
     var value: String {
         return self.rawValue
