@@ -8,11 +8,13 @@
 import Foundation
 import UIKit
 
-class MainView: UIViewController {
+class MainView: UITabBarController, UINavigationControllerDelegate {
     
     //MARK: Properties
     private let bundle = Bundle(for: MainView.self)
     private let className = String(describing: MainView.self)
+    
+    var presenter: MainViewToPresenter?
     
     //MARK: IBoutlets
     
@@ -20,10 +22,27 @@ class MainView: UIViewController {
     //MARK: Functions
     init() {
         super.init(nibName: className, bundle: bundle)
+        let view = self
+        let presenter = MainPresenter()
+        let router = MainRouter()
+        view.viewControllers = router.createTabBarViews()
+        view.presenter = presenter
+        presenter.view = view
+        presenter.router = router
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+extension MainView: MainPresenterToView {
+    func showLoading() {
+        
+    }
+    
+    func hideLoading() {
+        
+    }
 }

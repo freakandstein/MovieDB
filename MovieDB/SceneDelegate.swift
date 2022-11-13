@@ -21,6 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let splashView = SplashView()
         window?.rootViewController = splashView
         window?.makeKeyAndVisible()
+        
+        UINavigationBar.appearance().prefersLargeTitles = true
+        UITabBar.appearance().backgroundColor = .bg50.withAlphaComponent(.commonAlpha)
+        UITabBar.appearance().tintColor = .primary500
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
