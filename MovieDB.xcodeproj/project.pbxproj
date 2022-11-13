@@ -26,6 +26,7 @@
 		5232CE692920DE240048F707 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE682920DE240048F707 /* MainCollectionViewCell.swift */; };
 		5232CE6B2920ECAE0048F707 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE6A2920ECAE0048F707 /* UICollectionViewCell+Extension.swift */; };
 		5232CE6E2920F45B0048F707 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 5232CE6D2920F45B0048F707 /* SkeletonView */; };
+		5232CE71292149F20048F707 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE70292149F20048F707 /* DataService.swift */; };
 		52E53753291FE9E000F06ED2 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53752291FE9E000F06ED2 /* SplashPresenter.swift */; };
 		52E53755291FEA6600F06ED2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53754291FEA6600F06ED2 /* SplashInteractor.swift */; };
 		52E53757291FF10600F06ED2 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53756291FF10600F06ED2 /* SplashRouter.swift */; };
@@ -74,6 +75,7 @@
 		5232CE662920DDF60048F707 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
 		5232CE682920DE240048F707 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		5232CE6A2920ECAE0048F707 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		5232CE70292149F20048F707 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		52E53752291FE9E000F06ED2 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		52E53754291FEA6600F06ED2 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		52E53756291FF10600F06ED2 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
@@ -220,6 +222,14 @@
 			path = MainCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		5232CE6F292149C40048F707 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5232CE70292149F20048F707 /* DataService.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		52E5376029207E5600F06ED2 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +275,7 @@
 		52E70A5A291F5CCA0056C8F5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				5232CE6F292149C40048F707 /* Data */,
 				52E70A5F291F5E2D0056C8F5 /* Network */,
 			);
 			path = Service;
@@ -441,6 +452,7 @@
 				5232CE572920B1E40048F707 /* MovieInteractor.swift in Sources */,
 				5232CE642920C2140048F707 /* MainTableViewSectionHeaderCell.swift in Sources */,
 				52E70A63291F5EBE0056C8F5 /* MainService.swift in Sources */,
+				5232CE71292149F20048F707 /* DataService.swift in Sources */,
 				52E70A5E291F5DA40056C8F5 /* ErrorModel.swift in Sources */,
 				5218DEB8291F3D5700EDC095 /* SceneDelegate.swift in Sources */,
 				52E53753291FE9E000F06ED2 /* SplashPresenter.swift in Sources */,
