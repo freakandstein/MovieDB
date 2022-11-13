@@ -35,7 +35,7 @@ class LoaderView: UIView {
                 loader.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 loader.centerYAnchor.constraint(equalTo: self.centerYAnchor)
             ])
-            self.backgroundColor = .bg50.withAlphaComponent(0.95)
+            self.backgroundColor = .bg50.withAlphaComponent(.commonAlpha)
             self.layer.cornerRadius = 10
             self.layer.borderWidth = 1
             self.layer.borderColor = UIColor.bg50.cgColor
