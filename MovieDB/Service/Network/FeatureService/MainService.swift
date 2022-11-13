@@ -9,7 +9,10 @@ import Foundation
 import Moya
 
 enum MainService {
-    case getCurrentPrice
+    case getUpcomingMovie(page: Int)
+    case getPopularMovie(page: Int)
+    case getNowPlayingMovie(page: Int)
+    case getTopRatedMovie(page: Int)
 }
 
 extension MainService: TargetType {
@@ -25,8 +28,14 @@ extension MainService: TargetType {
     
     var path: String {
         switch self {
-        case .getCurrentPrice:
-            return "/bpi/currentprice.json"
+        case .getUpcomingMovie:
+            return "3/movie/upcoming"
+        case .getPopularMovie:
+            return "3/movie/popular"
+        case .getNowPlayingMovie:
+            return "3/movie/now_playing"
+        case .getTopRatedMovie:
+            return "3/movie/top_rated"
         }
     }
     
@@ -43,7 +52,17 @@ extension MainService: TargetType {
     }
     
     var parameter: [String: Any] {
-        return [:]
+        let apiKey = ConfigHelper.shared.getValue(configKey: .APIKey)
+        switch self {
+        case .getUpcomingMovie(let page),
+             .getPopularMovie(let page),
+             .getTopRatedMovie(let page),
+             .getNowPlayingMovie(let page):
+            return [
+                "api_key": apiKey,
+                "page": page
+            ]
+        }
     }
 }
 
