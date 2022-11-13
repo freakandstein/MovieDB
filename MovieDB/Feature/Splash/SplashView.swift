@@ -26,7 +26,9 @@ class SplashView: UIViewController {
         super.init(nibName: className, bundle: bundle)
         let view = self
         let presenter = SplashPresenter()
+        let router = SplashRouter()
         presenter.view = view
+        presenter.router = router
         view.presenter = presenter
     }
     
