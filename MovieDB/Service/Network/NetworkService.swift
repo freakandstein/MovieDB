@@ -33,22 +33,8 @@ class Provider: NetworkServiceProtocol {
             case .success(let response):
                 do {
                     if response.statusCode != 200 {
-                        let statusCode = response.statusCode
-                        let errorMessage: String
-                        // Implement only some common statusCodes
-                        switch statusCode {
-                        case 404:
-                            errorMessage = "HTTP Not Found"
-                        case 409:
-                            errorMessage = "HTTP Conflict"
-                        case 500:
-                            errorMessage = "Internal Server Error"
-                        case 502:
-                            errorMessage = "Bad Gateway"
-                        default:
-                            errorMessage = "Unknown Error"
-                        }
-                        completion(.failure(.errorResponse(code: statusCode, message: errorMessage)))
+                        let errorResult = try response.map(ErrorModel.self)
+                        completion(.failure(errorResult))
                     } else {
                         let filteredResponse = try response.filterSuccessfulStatusCodes()
                         let result = try filteredResponse.map(model)

@@ -10,13 +10,13 @@ import Foundation
 struct MovieModel: Codable {
     let page: Int
     let results: [MovieDetailModel]
-    let totalPage: Int
-    let totalResult: Int
+    let totalPages: Int
+    let totalResults: Int
     
     enum CodingKeys: String, CodingKey {
         case page, results
-        case totalPage = "total_page"
-        case totalResult = "total_result"
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
     }
 }
 
