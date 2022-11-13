@@ -55,7 +55,7 @@ extension SplashView: SplashPresenterToView {
                 loader.widthAnchor.constraint(equalToConstant: loader.frame.width),
                 loader.heightAnchor.constraint(equalToConstant: loader.frame.height),
                 loader.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                loader.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+                loader.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 64)
             ])
         }
     }
