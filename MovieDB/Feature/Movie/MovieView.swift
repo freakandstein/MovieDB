@@ -42,6 +42,7 @@ class MovieView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Movie"
         presenter?.viewDidLoad()
     }
 }
@@ -49,6 +50,11 @@ class MovieView: UIViewController {
 extension MovieView: MoviePresenterToView {
     
     func setupTableView() {
+        mainTableView.register(UINib(nibName: MainTableViewSectionHeaderCell.id,
+                                     bundle: .main),
+                               forHeaderFooterViewReuseIdentifier: MainTableViewSectionHeaderCell.id)
+        mainTableView.register(UINib(nibName: MainTableViewCell.id, bundle: .main),
+                               forCellReuseIdentifier: MainTableViewCell.id)
         mainTableView.delegate = self
         mainTableView.dataSource = self
     }
@@ -61,10 +67,40 @@ extension MovieView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.id) as? MainTableViewCell else { return UITableViewCell() }
+        
+        return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: MainTableViewSectionHeaderCell.id) as? MainTableViewSectionHeaderCell else { return nil }
+        switch section {
+        case MainTableViewIndex.upcoming.value:
+            cell.titleLabel.text = "Upcoming Movie"
+        case MainTableViewIndex.topRated.value:
+            cell.titleLabel.text = "Top Rated Movie"
+        case MainTableViewIndex.nowPlaying.value:
+            cell.titleLabel.text = "Now Playing Movie"
+        case MainTableViewIndex.popular.value:
+            cell.titleLabel.text = "Popular Movie"
+        default:
+            return nil
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 32
+    }
+    
+    
 }

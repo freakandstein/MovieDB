@@ -18,6 +18,13 @@
 		5232CE552920B1B70048F707 /* MoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE542920B1B70048F707 /* MoviePresenter.swift */; };
 		5232CE572920B1E40048F707 /* MovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE562920B1E40048F707 /* MovieInteractor.swift */; };
 		5232CE592920B2180048F707 /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE582920B2180048F707 /* MovieRouter.swift */; };
+		5232CE5D2920BC160048F707 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE5C2920BC160048F707 /* MainTableViewCell.swift */; };
+		5232CE5F2920BC240048F707 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5232CE5E2920BC240048F707 /* MainTableViewCell.xib */; };
+		5232CE622920C1DB0048F707 /* MainTableViewSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5232CE612920C1DB0048F707 /* MainTableViewSectionHeaderCell.xib */; };
+		5232CE642920C2140048F707 /* MainTableViewSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE632920C2140048F707 /* MainTableViewSectionHeaderCell.swift */; };
+		5232CE672920DDF60048F707 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5232CE662920DDF60048F707 /* MainCollectionViewCell.xib */; };
+		5232CE692920DE240048F707 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE682920DE240048F707 /* MainCollectionViewCell.swift */; };
+		5232CE6B2920ECAE0048F707 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE6A2920ECAE0048F707 /* UICollectionViewCell+Extension.swift */; };
 		52E53753291FE9E000F06ED2 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53752291FE9E000F06ED2 /* SplashPresenter.swift */; };
 		52E53755291FEA6600F06ED2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53754291FEA6600F06ED2 /* SplashInteractor.swift */; };
 		52E53757291FF10600F06ED2 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53756291FF10600F06ED2 /* SplashRouter.swift */; };
@@ -59,6 +66,13 @@
 		5232CE542920B1B70048F707 /* MoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePresenter.swift; sourceTree = "<group>"; };
 		5232CE562920B1E40048F707 /* MovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInteractor.swift; sourceTree = "<group>"; };
 		5232CE582920B2180048F707 /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
+		5232CE5C2920BC160048F707 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		5232CE5E2920BC240048F707 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		5232CE612920C1DB0048F707 /* MainTableViewSectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewSectionHeaderCell.xib; sourceTree = "<group>"; };
+		5232CE632920C2140048F707 /* MainTableViewSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewSectionHeaderCell.swift; sourceTree = "<group>"; };
+		5232CE662920DDF60048F707 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		5232CE682920DE240048F707 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		5232CE6A2920ECAE0048F707 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		52E53752291FE9E000F06ED2 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		52E53754291FEA6600F06ED2 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		52E53756291FF10600F06ED2 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
@@ -167,9 +181,47 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		5232CE5A2920BB830048F707 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5232CE652920DDC60048F707 /* MainCollectionViewCell */,
+				5232CE602920C19E0048F707 /* MainTableViewSectionHeaderCell */,
+				5232CE5B2920BBDA0048F707 /* MainTableViewCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5232CE5B2920BBDA0048F707 /* MainTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5232CE5C2920BC160048F707 /* MainTableViewCell.swift */,
+				5232CE5E2920BC240048F707 /* MainTableViewCell.xib */,
+			);
+			path = MainTableViewCell;
+			sourceTree = "<group>";
+		};
+		5232CE602920C19E0048F707 /* MainTableViewSectionHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				5232CE612920C1DB0048F707 /* MainTableViewSectionHeaderCell.xib */,
+				5232CE632920C2140048F707 /* MainTableViewSectionHeaderCell.swift */,
+			);
+			path = MainTableViewSectionHeaderCell;
+			sourceTree = "<group>";
+		};
+		5232CE652920DDC60048F707 /* MainCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5232CE662920DDF60048F707 /* MainCollectionViewCell.xib */,
+				5232CE682920DE240048F707 /* MainCollectionViewCell.swift */,
+			);
+			path = MainCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		52E5376029207E5600F06ED2 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				5232CE5A2920BB830048F707 /* Cell */,
 				52E5376129207E6F00F06ED2 /* MovieView.swift */,
 				52E5376329207F8900F06ED2 /* MovieView.xib */,
 				5232CE522920B1310048F707 /* MovieProtocols.swift */,
@@ -203,6 +255,7 @@
 				52E70A70291FA6D90056C8F5 /* UIColor+Extension.swift */,
 				52E70A74291FB9050056C8F5 /* CGFloat+Extension.swift */,
 				5232CE502920A7B10048F707 /* UIImage+Extension.swift */,
+				5232CE6A2920ECAE0048F707 /* UICollectionViewCell+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -342,11 +395,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E70A4E291F53B60056C8F5 /* MovieDB.xcconfig in Resources */,
+				5232CE622920C1DB0048F707 /* MainTableViewSectionHeaderCell.xib in Resources */,
 				5218DEC2291F3D5B00EDC095 /* LaunchScreen.storyboard in Resources */,
+				5232CE672920DDF60048F707 /* MainCollectionViewCell.xib in Resources */,
 				52E70A47291F4C630056C8F5 /* SplashView.xib in Resources */,
 				5218DECE291F465A00EDC095 /* MainView.xib in Resources */,
 				52E5376429207F8900F06ED2 /* MovieView.xib in Resources */,
 				5218DEBF291F3D5B00EDC095 /* Assets.xcassets in Resources */,
+				5232CE5F2920BC240048F707 /* MainTableViewCell.xib in Resources */,
 				52E70A6F291FA6450056C8F5 /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5232CE6B2920ECAE0048F707 /* UICollectionViewCell+Extension.swift in Sources */,
 				52E70A68291F9EBC0056C8F5 /* MovieModel.swift in Sources */,
 				52E70A4B291F4E870056C8F5 /* SplashProtocols.swift in Sources */,
 				52E53759291FF50F00F06ED2 /* MainProtocols.swift in Sources */,
@@ -365,9 +422,11 @@
 				52E5375D291FF52B00F06ED2 /* MainInteractor.swift in Sources */,
 				5232CE532920B1310048F707 /* MovieProtocols.swift in Sources */,
 				52E70A54291F55FE0056C8F5 /* String+Extension.swift in Sources */,
+				5232CE692920DE240048F707 /* MainCollectionViewCell.swift in Sources */,
 				52E70A73291FAFA90056C8F5 /* LoaderView.swift in Sources */,
 				52E70A59291F5CC00056C8F5 /* NetworkService.swift in Sources */,
 				5218DECC291F440100EDC095 /* MainView.swift in Sources */,
+				5232CE5D2920BC160048F707 /* MainTableViewCell.swift in Sources */,
 				52E5375F291FF53500F06ED2 /* MainRouter.swift in Sources */,
 				5232CE512920A7B10048F707 /* UIImage+Extension.swift in Sources */,
 				52E70A49291F4C760056C8F5 /* SplashView.swift in Sources */,
@@ -376,6 +435,7 @@
 				52E53757291FF10600F06ED2 /* SplashRouter.swift in Sources */,
 				5218DEB6291F3D5700EDC095 /* AppDelegate.swift in Sources */,
 				5232CE572920B1E40048F707 /* MovieInteractor.swift in Sources */,
+				5232CE642920C2140048F707 /* MainTableViewSectionHeaderCell.swift in Sources */,
 				52E70A63291F5EBE0056C8F5 /* MainService.swift in Sources */,
 				52E70A5E291F5DA40056C8F5 /* ErrorModel.swift in Sources */,
 				5218DEB8291F3D5700EDC095 /* SceneDelegate.swift in Sources */,

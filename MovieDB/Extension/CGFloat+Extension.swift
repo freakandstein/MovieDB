@@ -8,5 +8,5 @@
 import Foundation
 
 extension CGFloat {
-    static let commonAlpha = 0.95
+    static let commonAlpha = 0.80
 }

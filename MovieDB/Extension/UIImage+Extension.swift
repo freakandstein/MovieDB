@@ -12,4 +12,5 @@ extension UIImage {
     
     static let logo = UIImage(named: "GoPlaySplash") ?? UIImage()
     static let movieIcon = UIImage(named: "MovieIcon") ?? UIImage()
+    static let sampleMovie = UIImage(named: "SampleMovieImage") ?? UIImage()
 }
