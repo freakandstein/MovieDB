@@ -48,7 +48,10 @@ extension MainService: TargetType {
     }
     
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .getUpcomingMovie, .getNowPlayingMovie, .getTopRatedMovie, .getPopularMovie:
+            return .requestParameters(parameters: parameter, encoding: URLEncoding.default)
+        }
     }
     
     var parameter: [String: Any] {

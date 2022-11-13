@@ -19,12 +19,23 @@ enum MainTableViewIndex: Int {
     }
 }
 
+protocol MainTableViewCellDelegate {
+    func loadmore(mainTableViewIndex: MainTableViewIndex, currentPage: Int)
+}
+
 class MainTableViewCell: UITableViewCell {
     
     //MARK: Properties
     static let id = String(describing: MainTableViewCell.self)
     private var mainTableViewIndex: MainTableViewIndex = .upcoming
     private var model: MovieModel?
+    private var delegate: MainTableViewCellDelegate?
+    private var totalMovies: Int {
+        return model?.results.count ?? .zero
+    }
+    private var currentPage: Int {
+        return model?.page ?? .zero
+    }
     
     //MARK: IBOutlets
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -42,9 +53,17 @@ class MainTableViewCell: UITableViewCell {
         mainCollectionView.dataSource = self
     }
     
-    func setup(section: MainTableViewIndex) {
+    func setupDelegate(mainTableViewDelegate: MainTableViewCellDelegate) {
+        delegate = mainTableViewDelegate
+    }
+    
+    func setupSection(section: MainTableViewIndex) {
         mainTableViewIndex = section
-        
+    }
+    
+    func setData(movieModel: MovieModel?) {
+        model = movieModel
+        mainCollectionView.reloadData()
     }
 }
 
@@ -55,13 +74,21 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return totalMovies
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.id, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
+        let data = model?.results[indexPath.row]
         cell.shadowDecorate()
+        cell.setupMovieDetail(movieDetailModel: data)
+        if indexPath.row == totalMovies - 1 {
+            delegate?.loadmore(mainTableViewIndex: mainTableViewIndex, currentPage: currentPage)
+        }
+        
         return cell
     }
+    
+    
 
 }

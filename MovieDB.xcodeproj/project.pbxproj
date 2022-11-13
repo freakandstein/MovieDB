@@ -25,6 +25,7 @@
 		5232CE672920DDF60048F707 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5232CE662920DDF60048F707 /* MainCollectionViewCell.xib */; };
 		5232CE692920DE240048F707 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE682920DE240048F707 /* MainCollectionViewCell.swift */; };
 		5232CE6B2920ECAE0048F707 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE6A2920ECAE0048F707 /* UICollectionViewCell+Extension.swift */; };
+		5232CE6E2920F45B0048F707 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 5232CE6D2920F45B0048F707 /* SkeletonView */; };
 		52E53753291FE9E000F06ED2 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53752291FE9E000F06ED2 /* SplashPresenter.swift */; };
 		52E53755291FEA6600F06ED2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53754291FEA6600F06ED2 /* SplashInteractor.swift */; };
 		52E53757291FF10600F06ED2 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53756291FF10600F06ED2 /* SplashRouter.swift */; };
@@ -104,6 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E70A66291F9C250056C8F5 /* Kingfisher in Frameworks */,
+				5232CE6E2920F45B0048F707 /* SkeletonView in Frameworks */,
 				52E70A57291F5C9B0056C8F5 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +349,7 @@
 			packageProductDependencies = (
 				52E70A56291F5C9B0056C8F5 /* Moya */,
 				52E70A65291F9C250056C8F5 /* Kingfisher */,
+				5232CE6D2920F45B0048F707 /* SkeletonView */,
 			);
 			productName = MovieDB;
 			productReference = 5218DEB2291F3D5700EDC095 /* MovieDB.app */;
@@ -379,6 +382,7 @@
 			packageReferences = (
 				52E70A55291F5C9B0056C8F5 /* XCRemoteSwiftPackageReference "Moya" */,
 				52E70A64291F9C250056C8F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				5232CE6C2920F45B0048F707 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 5218DEB3291F3D5700EDC095 /* Products */;
 			projectDirPath = "";
@@ -656,6 +660,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5232CE6C2920F45B0048F707 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.9.0;
+			};
+		};
 		52E70A55291F5C9B0056C8F5 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -675,6 +687,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5232CE6D2920F45B0048F707 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5232CE6C2920F45B0048F707 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		52E70A56291F5C9B0056C8F5 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 52E70A55291F5C9B0056C8F5 /* XCRemoteSwiftPackageReference "Moya" */;

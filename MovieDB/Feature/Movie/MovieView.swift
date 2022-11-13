@@ -58,6 +58,10 @@ extension MovieView: MoviePresenterToView {
         mainTableView.delegate = self
         mainTableView.dataSource = self
     }
+    
+    func reloadSection(_ section: MainTableViewIndex) {
+        mainTableView.reloadSections([section.value], with: .automatic)
+    }
 }
 
 extension MovieView: UITableViewDelegate, UITableViewDataSource {
@@ -72,6 +76,21 @@ extension MovieView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.id) as? MainTableViewCell else { return UITableViewCell() }
+        
+        let section = MainTableViewIndex(rawValue: indexPath.section) ?? .upcoming
+        
+        cell.setupSection(section: section)
+        cell.setupDelegate(mainTableViewDelegate: self)
+        switch section {
+        case .upcoming:
+            cell.setData(movieModel: presenter?.upcomingMovie)
+        case .nowPlaying:
+            cell.setData(movieModel: presenter?.nowPlayingMovie)
+        case .topRated:
+            cell.setData(movieModel: presenter?.topRatedMovie)
+        case .popular:
+            cell.setData(movieModel: presenter?.popularMovie)
+        }
         
         return cell
     }
@@ -101,6 +120,10 @@ extension MovieView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 32
     }
-    
-    
+}
+
+extension MovieView: MainTableViewCellDelegate {
+    func loadmore(mainTableViewIndex: MainTableViewIndex, currentPage: Int) {
+        presenter?.loadmore(section: mainTableViewIndex, currentPage: currentPage)
+    }
 }

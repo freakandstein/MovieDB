@@ -8,10 +8,10 @@
 import Foundation
 
 struct MovieModel: Codable {
-    let page: Int
-    let results: [MovieDetailModel]
-    let totalPages: Int
-    let totalResults: Int
+    var page: Int
+    var results: [MovieDetailModel]
+    var totalPages: Int
+    var totalResults: Int
     
     enum CodingKeys: String, CodingKey {
         case page, results
@@ -22,11 +22,11 @@ struct MovieModel: Codable {
 
 struct MovieDetailModel: Codable {
     let id: Int
-    let overview: String
-    let title: String
-    let posterPath: String
-    let backdropPath: String
-    let releaseDate: String
+    let overview: String?
+    let title: String?
+    let posterPath: String?
+    let backdropPath: String?
+    let releaseDate: String?
     
     enum CodingKeys: String, CodingKey {
         case id, overview, title
