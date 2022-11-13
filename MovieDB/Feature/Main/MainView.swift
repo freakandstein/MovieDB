@@ -18,7 +18,6 @@ class MainView: UITabBarController, UINavigationControllerDelegate {
     
     //MARK: IBoutlets
     
-    
     //MARK: Functions
     init() {
         super.init(nibName: className, bundle: bundle)
@@ -34,15 +33,6 @@ class MainView: UITabBarController, UINavigationControllerDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
-extension MainView: MainPresenterToView {
-    func showLoading() {
-        
-    }
-    
-    func hideLoading() {
-        
-    }
-}
+extension MainView: MainPresenterToView { }

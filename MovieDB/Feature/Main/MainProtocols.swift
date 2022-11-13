@@ -12,8 +12,6 @@ protocol MainViewToPresenter {
     var view: MainPresenterToView? { get set }
     var interactor: MainPresenterToInteractor? { get set }
     var router: MainPresenterToRouter? { get set }
-    
-    func viewDidLoad()
 
 }
 
@@ -31,6 +29,4 @@ protocol MainPresenterToRouter {
     func createTabBarViews() -> [UIViewController]
 }
 
-protocol MainInteractorToPresenter {
-
-}
+protocol MainInteractorToPresenter { }

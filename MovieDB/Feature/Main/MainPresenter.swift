@@ -11,14 +11,6 @@ class MainPresenter: MainViewToPresenter {
     var view: MainPresenterToView?
     var interactor: MainPresenterToInteractor?
     var router: MainPresenterToRouter?
-    
-    func viewDidLoad() {
-        
-    }
-    
-    
 }
 
-extension MainPresenter: MainInteractorToPresenter {
-    
-}
+extension MainPresenter: MainInteractorToPresenter { }
