@@ -13,6 +13,8 @@ class MovieRouter: MoviePresenterToRouter {
     func navigateToMovieDetail(model: MovieDetailModel, view: MoviePresenterToView) {
         if let view = view as? UIViewController {
             let movieDetailView = MovieDetailView(movieDetailModel: model)
+            view.title = .empty
+            view.navigationController?.tabBarController?.tabBar.isHidden = true
             view.navigationController?.pushViewController(movieDetailView, animated: true)
         }
     }

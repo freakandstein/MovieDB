@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailView" customModule="MovieDB" customModuleProvider="target">
             <connections>
+                <outlet property="movieImageView" destination="PFW-49-rjL" id="ATE-1a-gm6"/>
+                <outlet property="overviewMovieLabel" destination="E5f-hN-qwk" id="FKx-Nc-Lms"/>
+                <outlet property="titleMovieLabel" destination="1aF-I1-WOs" id="lpq-Ah-ig5"/>
                 <outlet property="view" destination="iN0-l3-epB" id="UdJ-nQ-rEX"/>
             </connections>
         </placeholder>
@@ -17,9 +20,69 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8i-Oi-Zgf">
+                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLI-Jt-xJs">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="763"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PFW-49-rjL">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="280"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="280" id="ZIw-fG-bGZ"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aF-I1-WOs">
+                                    <rect key="frame" x="8" y="296" width="374" height="26.333333333333314"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5f-hN-qwk">
+                                    <rect key="frame" x="8" y="338.33333333333331" width="374" height="644.66666666666674"/>
+                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, </mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <mutableString key="userLabel">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet,</mutableString>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="PFW-49-rjL" firstAttribute="leading" secondItem="wLI-Jt-xJs" secondAttribute="leading" id="FcY-gC-BXx"/>
+                                <constraint firstAttribute="trailing" secondItem="PFW-49-rjL" secondAttribute="trailing" id="HlW-EH-ooy"/>
+                                <constraint firstItem="1aF-I1-WOs" firstAttribute="top" secondItem="PFW-49-rjL" secondAttribute="bottom" constant="16" id="HnR-qx-8oT"/>
+                                <constraint firstItem="E5f-hN-qwk" firstAttribute="top" secondItem="1aF-I1-WOs" secondAttribute="bottom" constant="16" id="LYI-dc-u2M"/>
+                                <constraint firstAttribute="trailing" secondItem="1aF-I1-WOs" secondAttribute="trailing" constant="8" id="ON2-T7-vGw"/>
+                                <constraint firstItem="1aF-I1-WOs" firstAttribute="leading" secondItem="wLI-Jt-xJs" secondAttribute="leading" constant="8" id="fsW-b9-nf3"/>
+                                <constraint firstItem="E5f-hN-qwk" firstAttribute="leading" secondItem="1aF-I1-WOs" secondAttribute="leading" id="hIa-I8-aid"/>
+                                <constraint firstAttribute="trailing" secondItem="E5f-hN-qwk" secondAttribute="trailing" constant="8" id="lzK-gj-iNb"/>
+                                <constraint firstItem="PFW-49-rjL" firstAttribute="top" secondItem="wLI-Jt-xJs" secondAttribute="top" id="sOR-Ze-Fv2"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wLI-Jt-xJs" firstAttribute="trailing" secondItem="C9R-aJ-Ly1" secondAttribute="trailing" id="OGg-Lh-cn7"/>
+                        <constraint firstItem="E5f-hN-qwk" firstAttribute="bottom" secondItem="C9R-aJ-Ly1" secondAttribute="bottom" id="ccu-aF-wes"/>
+                        <constraint firstItem="wLI-Jt-xJs" firstAttribute="leading" secondItem="C9R-aJ-Ly1" secondAttribute="leading" id="g5Z-x9-DXk"/>
+                        <constraint firstItem="wLI-Jt-xJs" firstAttribute="height" secondItem="Dfv-Rs-Emb" secondAttribute="height" priority="750" id="lLl-ff-KE4"/>
+                        <constraint firstItem="wLI-Jt-xJs" firstAttribute="width" secondItem="Dfv-Rs-Emb" secondAttribute="width" id="otq-Km-46R"/>
+                        <constraint firstItem="wLI-Jt-xJs" firstAttribute="top" secondItem="C9R-aJ-Ly1" secondAttribute="top" id="wEb-11-qYv"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="C9R-aJ-Ly1"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="Dfv-Rs-Emb"/>
+                </scrollView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="52" y="21"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="P8i-Oi-Zgf" secondAttribute="trailing" id="cYB-UE-OXu"/>
+                <constraint firstItem="P8i-Oi-Zgf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dmn-4z-VEK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="P8i-Oi-Zgf" secondAttribute="bottom" id="tu7-sQ-Bhc"/>
+                <constraint firstItem="P8i-Oi-Zgf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="z8N-Qc-tRu"/>
+            </constraints>
+            <point key="canvasLocation" x="-55.38461538461538" y="319.90521327014216"/>
         </view>
     </objects>
     <resources>

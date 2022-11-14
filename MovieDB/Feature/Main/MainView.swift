@@ -13,7 +13,6 @@ class MainView: UITabBarController, UINavigationControllerDelegate {
     //MARK: Properties
     private let bundle = Bundle(for: MainView.self)
     private let className = String(describing: MainView.self)
-    
     var presenter: MainViewToPresenter?
     
     //MARK: IBoutlets

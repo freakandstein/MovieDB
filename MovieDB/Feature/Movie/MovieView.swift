@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SkeletonView
 
 class MovieView: UIViewController {
     
@@ -47,8 +46,13 @@ class MovieView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Movie"
         presenter?.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Movie"
+        navigationController?.tabBarController?.tabBar.isHidden = false
     }
 }
 
@@ -76,16 +80,12 @@ extension MovieView: MoviePresenterToView {
         switch mainTableViewIndex {
         case .upcoming:
             upcomingTableViewCell?.setData(movieModel: presenter?.upcomingMovie)
-            upcomingTableViewCell?.hideSkeleton()
         case .popular:
             popularTableViewCell?.setData(movieModel: presenter?.popularMovie)
-            popularTableViewCell?.hideSkeleton()
         case .nowPlaying:
             nowPlayingTableViewCell?.setData(movieModel: presenter?.nowPlayingMovie)
-            nowPlayingTableViewCell?.hideSkeleton()
         case .topRated:
             topRatedTableViewCell?.setData(movieModel: presenter?.topRatedMovie)
-            topRatedTableViewCell?.hideSkeleton()
         }
     }
 }
@@ -110,19 +110,15 @@ extension MovieView: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case .upcoming:
             upcomingTableViewCell = cell
-            upcomingTableViewCell?.isSkeletonable = true
             cell.setData(movieModel: presenter?.upcomingMovie)
         case .nowPlaying:
             nowPlayingTableViewCell = cell
-            nowPlayingTableViewCell?.isSkeletonable = true
             cell.setData(movieModel: presenter?.nowPlayingMovie)
         case .topRated:
             topRatedTableViewCell = cell
-            topRatedTableViewCell?.isSkeletonable = true
             cell.setData(movieModel: presenter?.topRatedMovie)
         case .popular:
             popularTableViewCell = cell
-            popularTableViewCell?.isSkeletonable = true
             cell.setData(movieModel: presenter?.popularMovie)
         }
         
@@ -158,16 +154,6 @@ extension MovieView: UITableViewDelegate, UITableViewDataSource {
 
 extension MovieView: MainTableViewCellDelegate {
     func loadmore(mainTableViewIndex: MainTableViewIndex, currentPage: Int) {
-        switch mainTableViewIndex {
-        case .upcoming:
-            upcomingTableViewCell?.showAnimatedGradientSkeleton()
-        case .popular:
-            popularTableViewCell?.showAnimatedGradientSkeleton()
-        case .nowPlaying:
-            nowPlayingTableViewCell?.showAnimatedGradientSkeleton()
-        case .topRated:
-            topRatedTableViewCell?.showAnimatedGradientSkeleton()
-        }
         presenter?.loadmore(section: mainTableViewIndex, currentPage: currentPage)
     }
     

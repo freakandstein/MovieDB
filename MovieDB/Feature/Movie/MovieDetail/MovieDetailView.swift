@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Kingfisher
+import SkeletonView
 
 class MovieDetailView: UIViewController {
     
@@ -17,8 +18,9 @@ class MovieDetailView: UIViewController {
     private let model: MovieDetailModel
     
     //MARK: IBoutlets
-    
-    
+    @IBOutlet weak var movieImageView: UIImageView!
+    @IBOutlet weak var titleMovieLabel: UILabel!
+    @IBOutlet weak var overviewMovieLabel: UILabel!
     
     //MARK: Functions
     init(movieDetailModel: MovieDetailModel) {
@@ -32,7 +34,27 @@ class MovieDetailView: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(model)
+        setup()
+    }
+    
+    private func loadImage() {
+        let baseURLImage = ConfigHelper.shared.getValue(configKey: .BaseURLImage)
+        let urlPathImage = model.backdropPath ?? .empty
+        let urlImage = baseURLImage + urlPathImage
+        movieImageView.isSkeletonable = true
+        movieImageView.showAnimatedGradientSkeleton()
+        movieImageView.kf.setImage(with: URL(string: urlImage)) { [weak self] result in
+            guard let self = self else { return }
+            self.movieImageView.hideSkeleton()
+        }
+    }
+    
+    private func setup() {
+        let titleMovie = model.title ?? .empty
+        title = titleMovie
+        titleMovieLabel.text = titleMovie
+        overviewMovieLabel.text = model.overview ?? .empty
+        loadImage()
     }
     
 }

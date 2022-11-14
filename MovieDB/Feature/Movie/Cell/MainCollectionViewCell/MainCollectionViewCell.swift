@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Kingfisher
+import SkeletonView
 
 class MainCollectionViewCell: UICollectionViewCell {
     
@@ -32,7 +33,12 @@ class MainCollectionViewCell: UICollectionViewCell {
     private func loadImage(urlPathImage: String) {
         let baseURLImage = ConfigHelper.shared.getValue(configKey: .BaseURLImage)
         let urlImage = baseURLImage + urlPathImage
-        movieImage.kf.setImage(with: URL(string: urlImage))
+        movieImage.isSkeletonable = true
+        movieImage.showAnimatedGradientSkeleton()
+        movieImage.kf.setImage(with: URL(string: urlImage)) { [weak self] result in
+            guard let self = self else { return }
+            self.movieImage.hideSkeleton()
+        }
     }
     
 }
