@@ -21,6 +21,7 @@ enum MainTableViewIndex: Int {
 
 protocol MainTableViewCellDelegate: AnyObject {
     func loadmore(mainTableViewIndex: MainTableViewIndex, currentPage: Int)
+    func navigateToMovieDetail(mainTableViewIndex: MainTableViewIndex, row: Int)
 }
 
 class MainTableViewCell: UITableViewCell {
@@ -87,5 +88,9 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.navigateToMovieDetail(mainTableViewIndex: mainTableViewIndex, row: indexPath.row)
     }
 }

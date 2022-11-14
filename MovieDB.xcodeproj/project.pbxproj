@@ -28,6 +28,8 @@
 		5232CE6E2920F45B0048F707 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 5232CE6D2920F45B0048F707 /* SkeletonView */; };
 		5232CE71292149F20048F707 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE70292149F20048F707 /* DataService.swift */; };
 		5232CE732921C8000048F707 /* NetworkMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE722921C8000048F707 /* NetworkMonitorService.swift */; };
+		5232CE762922A0980048F707 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE752922A0980048F707 /* MovieDetailView.swift */; };
+		5232CE782922A1230048F707 /* MovieDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5232CE772922A1230048F707 /* MovieDetailView.xib */; };
 		52E53753291FE9E000F06ED2 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53752291FE9E000F06ED2 /* SplashPresenter.swift */; };
 		52E53755291FEA6600F06ED2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53754291FEA6600F06ED2 /* SplashInteractor.swift */; };
 		52E53757291FF10600F06ED2 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53756291FF10600F06ED2 /* SplashRouter.swift */; };
@@ -78,6 +80,8 @@
 		5232CE6A2920ECAE0048F707 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		5232CE70292149F20048F707 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		5232CE722921C8000048F707 /* NetworkMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorService.swift; sourceTree = "<group>"; };
+		5232CE752922A0980048F707 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		5232CE772922A1230048F707 /* MovieDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailView.xib; sourceTree = "<group>"; };
 		52E53752291FE9E000F06ED2 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		52E53754291FEA6600F06ED2 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		52E53756291FF10600F06ED2 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
@@ -232,9 +236,19 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		5232CE742922A01E0048F707 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5232CE752922A0980048F707 /* MovieDetailView.swift */,
+				5232CE772922A1230048F707 /* MovieDetailView.xib */,
+			);
+			path = MovieDetail;
+			sourceTree = "<group>";
+		};
 		52E5376029207E5600F06ED2 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				5232CE742922A01E0048F707 /* MovieDetail */,
 				5232CE5A2920BB830048F707 /* Cell */,
 				52E5376129207E6F00F06ED2 /* MovieView.swift */,
 				52E5376329207F8900F06ED2 /* MovieView.xib */,
@@ -416,6 +430,7 @@
 				5232CE622920C1DB0048F707 /* MainTableViewSectionHeaderCell.xib in Resources */,
 				5218DEC2291F3D5B00EDC095 /* LaunchScreen.storyboard in Resources */,
 				5232CE672920DDF60048F707 /* MainCollectionViewCell.xib in Resources */,
+				5232CE782922A1230048F707 /* MovieDetailView.xib in Resources */,
 				52E70A47291F4C630056C8F5 /* SplashView.xib in Resources */,
 				5218DECE291F465A00EDC095 /* MainView.xib in Resources */,
 				52E5376429207F8900F06ED2 /* MovieView.xib in Resources */,
@@ -446,6 +461,7 @@
 				5218DECC291F440100EDC095 /* MainView.swift in Sources */,
 				5232CE5D2920BC160048F707 /* MainTableViewCell.swift in Sources */,
 				52E5375F291FF53500F06ED2 /* MainRouter.swift in Sources */,
+				5232CE762922A0980048F707 /* MovieDetailView.swift in Sources */,
 				5232CE512920A7B10048F707 /* UIImage+Extension.swift in Sources */,
 				52E70A49291F4C760056C8F5 /* SplashView.swift in Sources */,
 				52E5375B291FF51E00F06ED2 /* MainPresenter.swift in Sources */,

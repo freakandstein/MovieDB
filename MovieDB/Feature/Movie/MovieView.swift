@@ -170,4 +170,8 @@ extension MovieView: MainTableViewCellDelegate {
         }
         presenter?.loadmore(section: mainTableViewIndex, currentPage: currentPage)
     }
+    
+    func navigateToMovieDetail(mainTableViewIndex: MainTableViewIndex, row: Int) {
+        presenter?.navigateToMovieDetail(section: mainTableViewIndex, row: row)
+    }
 }

@@ -45,6 +45,23 @@ class MoviePresenter: MovieViewToPresenter {
             interactor?.callGetMoviePopular(page: nextPage)
         }
     }
+    
+    func navigateToMovieDetail(section: MainTableViewIndex, row: Int) {
+        var data: MovieDetailModel?
+        switch section {
+        case .topRated:
+            data = topRatedMovie?.results[row]
+        case .nowPlaying:
+            data = nowPlayingMovie?.results[row]
+        case .upcoming:
+            data = upcomingMovie?.results[row]
+        case .popular:
+            data = popularMovie?.results[row]
+        }
+        if let data = data, let view = view {
+            router?.navigateToMovieDetail(model: data, view: view)
+        }
+    }
 }
 
 extension MoviePresenter: MovieInteractorToPresenter {

@@ -19,6 +19,7 @@ protocol MovieViewToPresenter: AnyObject {
     
     func viewDidLoad()
     func loadmore(section: MainTableViewIndex, currentPage: Int)
+    func navigateToMovieDetail(section: MainTableViewIndex, row: Int)
 
 }
 
@@ -49,7 +50,9 @@ protocol MoviePresenterToInteractor: AnyObject {
     func loadMovieModel(section: MainTableViewIndex) -> MovieModel?
 }
 
-protocol MoviePresenterToRouter: AnyObject { }
+protocol MoviePresenterToRouter: AnyObject {
+    func navigateToMovieDetail(model: MovieDetailModel, view: MoviePresenterToView)
+}
 
 protocol MovieInteractorToPresenter: AnyObject {
     
