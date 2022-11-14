@@ -19,7 +19,7 @@ enum MainTableViewIndex: Int {
     }
 }
 
-protocol MainTableViewCellDelegate {
+protocol MainTableViewCellDelegate: AnyObject {
     func loadmore(mainTableViewIndex: MainTableViewIndex, currentPage: Int)
 }
 

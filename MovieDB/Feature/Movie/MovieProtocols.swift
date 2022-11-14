@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol MovieViewToPresenter {
+protocol MovieViewToPresenter: AnyObject {
     var view: MoviePresenterToView? { get set }
     var interactor: MoviePresenterToInteractor? { get set }
     var router: MoviePresenterToRouter? { get set }
@@ -22,26 +22,31 @@ protocol MovieViewToPresenter {
 
 }
 
-protocol MoviePresenterToView {
+protocol MoviePresenterToView: AnyObject {
     var presenter: MovieViewToPresenter? { get set }
     
     func setupTableView()
     func reloadSection(_ section: MainTableViewIndex)
 }
 
-protocol MoviePresenterToInteractor {
+protocol MoviePresenterToInteractor: AnyObject {
     var presenter: MovieInteractorToPresenter? { get set }
     var networkService: NetworkService { get set }
+    var dataService: DataServiceProtocol { get set }
     
     func callGetMovieTopRated(page: Int)
     func callGetMoviePopular(page: Int)
     func callGetMovieUpcoming(page: Int)
     func callGetMovieNowPlaying(page: Int)
+    func saveMovieTopRated(model: MovieModel?) -> Bool
+    func saveMoviePopular(model: MovieModel?) -> Bool
+    func saveMovieUpcoming(model: MovieModel?) -> Bool
+    func saveMovieNowPlaying(model: MovieModel?) -> Bool
 }
 
-protocol MoviePresenterToRouter { }
+protocol MoviePresenterToRouter: AnyObject { }
 
-protocol MovieInteractorToPresenter {
+protocol MovieInteractorToPresenter: AnyObject {
     
     func didGetMovieTopRated(model: MovieModel?, error: ErrorModel?)
     func didGetMovieUpcoming(model: MovieModel?, error: ErrorModel?)

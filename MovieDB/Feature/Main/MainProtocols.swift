@@ -8,25 +8,25 @@
 import Foundation
 import UIKit
 
-protocol MainViewToPresenter {
+protocol MainViewToPresenter: AnyObject {
     var view: MainPresenterToView? { get set }
     var interactor: MainPresenterToInteractor? { get set }
     var router: MainPresenterToRouter? { get set }
 
 }
 
-protocol MainPresenterToView {
+protocol MainPresenterToView: AnyObject {
     var presenter: MainViewToPresenter? { get set }
 }
 
-protocol MainPresenterToInteractor {
+protocol MainPresenterToInteractor: AnyObject {
     var presenter: MainInteractorToPresenter? { get set }
     var networkService: NetworkService { get set }
     
 }
 
-protocol MainPresenterToRouter {
+protocol MainPresenterToRouter: AnyObject {
     func createTabBarViews() -> [UIViewController]
 }
 
-protocol MainInteractorToPresenter { }
+protocol MainInteractorToPresenter: AnyObject { }

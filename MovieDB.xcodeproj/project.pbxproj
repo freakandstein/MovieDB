@@ -27,6 +27,7 @@
 		5232CE6B2920ECAE0048F707 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE6A2920ECAE0048F707 /* UICollectionViewCell+Extension.swift */; };
 		5232CE6E2920F45B0048F707 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 5232CE6D2920F45B0048F707 /* SkeletonView */; };
 		5232CE71292149F20048F707 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE70292149F20048F707 /* DataService.swift */; };
+		5232CE732921C8000048F707 /* NetworkMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232CE722921C8000048F707 /* NetworkMonitorService.swift */; };
 		52E53753291FE9E000F06ED2 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53752291FE9E000F06ED2 /* SplashPresenter.swift */; };
 		52E53755291FEA6600F06ED2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53754291FEA6600F06ED2 /* SplashInteractor.swift */; };
 		52E53757291FF10600F06ED2 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E53756291FF10600F06ED2 /* SplashRouter.swift */; };
@@ -76,6 +77,7 @@
 		5232CE682920DE240048F707 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		5232CE6A2920ECAE0048F707 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		5232CE70292149F20048F707 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		5232CE722921C8000048F707 /* NetworkMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorService.swift; sourceTree = "<group>"; };
 		52E53752291FE9E000F06ED2 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		52E53754291FEA6600F06ED2 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		52E53756291FF10600F06ED2 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				52E70A61291F5E770056C8F5 /* FeatureService */,
 				52E70A58291F5CC00056C8F5 /* NetworkService.swift */,
+				5232CE722921C8000048F707 /* NetworkMonitorService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				52E5375B291FF51E00F06ED2 /* MainPresenter.swift in Sources */,
 				52E53755291FEA6600F06ED2 /* SplashInteractor.swift in Sources */,
 				52E53757291FF10600F06ED2 /* SplashRouter.swift in Sources */,
+				5232CE732921C8000048F707 /* NetworkMonitorService.swift in Sources */,
 				5218DEB6291F3D5700EDC095 /* AppDelegate.swift in Sources */,
 				5232CE572920B1E40048F707 /* MovieInteractor.swift in Sources */,
 				5232CE642920C2140048F707 /* MainTableViewSectionHeaderCell.swift in Sources */,
