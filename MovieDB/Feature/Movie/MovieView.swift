@@ -62,6 +62,10 @@ extension MovieView: MoviePresenterToView {
     func reloadSection(_ section: MainTableViewIndex) {
         mainTableView.reloadSections([section.value], with: .automatic)
     }
+    
+    func reload() {
+        mainTableView.reloadData()
+    }
 }
 
 extension MovieView: UITableViewDelegate, UITableViewDataSource {

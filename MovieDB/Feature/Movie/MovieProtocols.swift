@@ -27,12 +27,14 @@ protocol MoviePresenterToView: AnyObject {
     
     func setupTableView()
     func reloadSection(_ section: MainTableViewIndex)
+    func reload()
 }
 
 protocol MoviePresenterToInteractor: AnyObject {
     var presenter: MovieInteractorToPresenter? { get set }
     var networkService: NetworkService { get set }
     var dataService: DataServiceProtocol { get set }
+    var networkMonitoringService: NetworkMonitorServiceProtocol { get set }
     
     func callGetMovieTopRated(page: Int)
     func callGetMoviePopular(page: Int)
@@ -42,6 +44,8 @@ protocol MoviePresenterToInteractor: AnyObject {
     func saveMoviePopular(model: MovieModel?) -> Bool
     func saveMovieUpcoming(model: MovieModel?) -> Bool
     func saveMovieNowPlaying(model: MovieModel?) -> Bool
+    func isNetworkOnline() -> Bool
+    func loadMovieModel(section: MainTableViewIndex) -> MovieModel?
 }
 
 protocol MoviePresenterToRouter: AnyObject { }

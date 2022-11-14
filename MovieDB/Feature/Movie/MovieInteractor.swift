@@ -11,6 +11,7 @@ class MovieInteractor: MoviePresenterToInteractor {
     var presenter: MovieInteractorToPresenter?
     var networkService: NetworkService = NetworkService.shared
     var dataService: DataServiceProtocol = DataService.shared
+    var networkMonitoringService: NetworkMonitorServiceProtocol = NetworkMonitorService.shared
     
     func callGetMovieUpcoming(page: Int) {
         let target = MainService.getUpcomingMovie(page: page)
@@ -102,5 +103,28 @@ class MovieInteractor: MoviePresenterToInteractor {
             return result ?? false
         }
         return false
+    }
+    
+    func loadMovieModel(section: MainTableViewIndex) -> MovieModel? {
+        var model: MovieModel?
+        var data: Data?
+        switch section {
+        case .topRated:
+            data = (try? dataService.load(key: MovieModelKey.topRated.value)) ?? Data()
+        case .popular:
+            data = try? dataService.load(key: MovieModelKey.popular.value)
+        case .upcoming:
+            data = try? dataService.load(key: MovieModelKey.upcoming.value)
+        case .nowPlaying:
+            data = try? dataService.load(key: MovieModelKey.nowPlaying.value)
+        }
+        if let data = data {
+            model = try? JSONDecoder().decode(MovieModel.self, from: data)
+        }
+        return model
+    }
+    
+    func isNetworkOnline() -> Bool {
+        return networkMonitoringService.isOnline
     }
 }

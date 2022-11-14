@@ -18,10 +18,18 @@ class MoviePresenter: MovieViewToPresenter {
     
     func viewDidLoad() {
         view?.setupTableView()
-        interactor?.callGetMovieUpcoming(page: 1)
-        interactor?.callGetMoviePopular(page: 1)
-        interactor?.callGetMovieTopRated(page: 1)
-        interactor?.callGetMovieNowPlaying(page: 1)
+        if interactor?.isNetworkOnline() ?? false {
+            interactor?.callGetMovieUpcoming(page: 1)
+            interactor?.callGetMoviePopular(page: 1)
+            interactor?.callGetMovieTopRated(page: 1)
+            interactor?.callGetMovieNowPlaying(page: 1)
+        } else {
+            upcomingMovie = interactor?.loadMovieModel(section: .upcoming)
+            nowPlayingMovie = interactor?.loadMovieModel(section: .nowPlaying)
+            popularMovie = interactor?.loadMovieModel(section: .popular)
+            topRatedMovie = interactor?.loadMovieModel(section: .topRated)
+            view?.reload()
+        }
     }
     
     func loadmore(section: MainTableViewIndex, currentPage: Int) {
