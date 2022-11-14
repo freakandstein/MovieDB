@@ -7,6 +7,17 @@
 
 import Foundation
 
+enum MovieModelKey: String {
+    case popular
+    case nowPlaying
+    case topRated
+    case upcoming
+    
+    var value: String {
+        return rawValue
+    }
+}
+
 struct MovieModel: Codable {
     var page: Int
     var results: [MovieDetailModel]

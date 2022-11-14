@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DataServiceProtocol: AnyObject {
-    func save<T: Codable>(data: [T], key: String) throws
+    func save<T: Codable>(data: T, key: String) throws -> Bool
     func load(key: String) throws -> Data
     func remove(key: String) throws
 }
@@ -17,11 +17,12 @@ class DataServiceProvider: DataServiceProtocol {
     
     let userDefault = UserDefaults.standard
     
-    func save<T: Codable>(data: [T], key: String) throws {
+    func save<T: Codable>(data: T, key: String) throws -> Bool {
         if let encoded = try? JSONEncoder().encode(data) {
             userDefault.set(encoded, forKey: key)
+            return true
         } else {
-            throw .saveError()
+            return false
         }
     }
     

@@ -10,6 +10,7 @@ import Foundation
 class MovieInteractor: MoviePresenterToInteractor {
     var presenter: MovieInteractorToPresenter?
     var networkService: NetworkService = NetworkService.shared
+    var dataService: DataServiceProtocol = DataService.shared
     
     func callGetMovieUpcoming(page: Int) {
         let target = MainService.getUpcomingMovie(page: page)
@@ -69,5 +70,37 @@ class MovieInteractor: MoviePresenterToInteractor {
                 break
             }
         }
+    }
+    
+    func saveMovieNowPlaying(model: MovieModel?) -> Bool {
+        if let model = model {
+            let result = try? self.dataService.save(data: model, key: MovieModelKey.nowPlaying.value)
+            return result ?? false
+        }
+        return false
+    }
+    
+    func saveMoviePopular(model: MovieModel?) -> Bool {
+        if let model = model {
+            let result = try? self.dataService.save(data: model, key: MovieModelKey.popular.value)
+            return result ?? false
+        }
+        return false
+    }
+    
+    func saveMovieTopRated(model: MovieModel?) -> Bool {
+        if let model = model {
+            let result = try? self.dataService.save(data: model, key: MovieModelKey.topRated.value)
+            return result ?? false
+        }
+        return false
+    }
+    
+    func saveMovieUpcoming(model: MovieModel?) -> Bool {
+        if let model = model {
+            let result = try? self.dataService.save(data: model, key: MovieModelKey.upcoming.value)
+            return result ?? false
+        }
+        return false
     }
 }
