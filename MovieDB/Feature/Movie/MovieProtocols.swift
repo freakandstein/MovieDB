@@ -28,6 +28,7 @@ protocol MoviePresenterToView: AnyObject {
     func setupTableView()
     func reloadSection(_ section: MainTableViewIndex)
     func reload()
+    func loadMore(by mainTableViewIndex: MainTableViewIndex)
 }
 
 protocol MoviePresenterToInteractor: AnyObject {

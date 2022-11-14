@@ -54,12 +54,13 @@ extension MoviePresenter: MovieInteractorToPresenter {
         } else {
             if upcomingMovie == nil {
                 upcomingMovie = model
+                view?.reloadSection(.upcoming)
             } else {
                 upcomingMovie?.page = model?.page ?? .zero
                 upcomingMovie?.results.append(contentsOf: (model?.results ?? []))
+                view?.loadMore(by: .upcoming)
             }
             _ = interactor?.saveMovieUpcoming(model: upcomingMovie)
-            view?.reloadSection(.upcoming)
         }
     }
     
@@ -69,12 +70,13 @@ extension MoviePresenter: MovieInteractorToPresenter {
         } else {
             if topRatedMovie == nil {
                 topRatedMovie = model
+                view?.reloadSection(.topRated)
             } else {
                 topRatedMovie?.page = model?.page ?? .zero
                 topRatedMovie?.results.append(contentsOf: (model?.results ?? []))
+                view?.loadMore(by: .topRated)
             }
             _ = interactor?.saveMovieUpcoming(model: topRatedMovie)
-            view?.reloadSection(.topRated)
         }
     }
     
@@ -84,12 +86,13 @@ extension MoviePresenter: MovieInteractorToPresenter {
         } else {
             if nowPlayingMovie == nil {
                 nowPlayingMovie = model
+                view?.reloadSection(.nowPlaying)
             } else {
                 nowPlayingMovie?.page = model?.page ?? .zero
                 nowPlayingMovie?.results.append(contentsOf: (model?.results ?? []))
+                view?.loadMore(by: .nowPlaying)
             }
             _ = interactor?.saveMovieUpcoming(model: nowPlayingMovie)
-            view?.reloadSection(.nowPlaying)
         }
     }
     
@@ -99,12 +102,13 @@ extension MoviePresenter: MovieInteractorToPresenter {
         } else {
             if popularMovie == nil {
                 popularMovie = model
+                view?.reloadSection(.popular)
             } else {
                 popularMovie?.page = model?.page ?? .zero
                 popularMovie?.results.append(contentsOf: (model?.results ?? []))
+                view?.loadMore(by: .popular)
             }
             _ = interactor?.saveMovieUpcoming(model: upcomingMovie)
-            view?.reloadSection(.popular)
         }
     }
 }

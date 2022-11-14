@@ -88,7 +88,4 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         
         return cell
     }
-    
-    
-
 }
