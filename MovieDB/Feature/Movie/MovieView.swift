@@ -18,12 +18,13 @@ class MovieView: UIViewController {
     private var topRatedTableViewCell: MainTableViewCell?
     private var nowPlayingTableViewCell: MainTableViewCell?
     private var popularTableViewCell: MainTableViewCell?
+    private var refreshControl: UIRefreshControl = UIRefreshControl()
+    private var isRefreshing: Bool = false
     
     var presenter: MovieViewToPresenter?
     
     //MARK: IBoutlets
     @IBOutlet weak var mainTableView: UITableView!
-    
     
     //MARK: Functions
     init() {
@@ -59,6 +60,7 @@ class MovieView: UIViewController {
 extension MovieView: MoviePresenterToView {
     
     func setupTableView() {
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         mainTableView.register(UINib(nibName: MainTableViewSectionHeaderCell.id,
                                      bundle: .main),
                                forHeaderFooterViewReuseIdentifier: MainTableViewSectionHeaderCell.id)
@@ -66,6 +68,7 @@ extension MovieView: MoviePresenterToView {
                                forCellReuseIdentifier: MainTableViewCell.id)
         mainTableView.delegate = self
         mainTableView.dataSource = self
+        mainTableView.addSubview(refreshControl)
     }
     
     func reload() {
@@ -82,6 +85,10 @@ extension MovieView: MoviePresenterToView {
             nowPlayingTableViewCell?.setData(movieModel: presenter?.nowPlayingMovie)
         case .topRated:
             topRatedTableViewCell?.setData(movieModel: presenter?.topRatedMovie)
+        }
+        if isRefreshing {
+            refreshControl.endRefreshing()
+            isRefreshing = false
         }
     }
     
@@ -107,6 +114,12 @@ extension MovieView: MoviePresenterToView {
         }
         alertController.addAction(okAction)
         present(alertController, animated: true)
+    }
+    
+    @objc private func pullToRefresh() {
+        refreshControl.beginRefreshing()
+        isRefreshing = true
+        presenter?.viewDidLoad()
     }
 }
 

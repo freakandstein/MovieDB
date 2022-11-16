@@ -17,6 +17,10 @@ class MoviePresenter: MovieViewToPresenter {
     var topRatedMovie: MovieModel?
     
     func viewDidLoad() {
+        upcomingMovie = nil
+        nowPlayingMovie = nil
+        popularMovie = nil
+        topRatedMovie = nil
         view?.setupTableView()
         if interactor?.isNetworkOnline() ?? false {
             interactor?.callGetMovieUpcoming(page: 1)
