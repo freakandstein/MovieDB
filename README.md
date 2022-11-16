@@ -31,5 +31,6 @@ Using VIPER (View Interactor Presenter Entity Router).
 - Open MovieDB.xcodeproj
 - Build (Command + B) in XCode
 - Run (Command + R) in XCode
+- Run for unit test (Command + U) in Xcode
 
 
