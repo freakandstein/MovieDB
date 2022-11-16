@@ -93,7 +93,7 @@ extension MoviePresenter: MovieInteractorToPresenter {
                 topRatedMovie?.results.append(contentsOf: (model?.results ?? []))
                 view?.loadMore(by: .topRated)
             }
-            _ = interactor?.saveMovieUpcoming(model: topRatedMovie)
+            _ = interactor?.saveMovieTopRated(model: topRatedMovie)
         }
     }
     
@@ -109,7 +109,7 @@ extension MoviePresenter: MovieInteractorToPresenter {
                 nowPlayingMovie?.results.append(contentsOf: (model?.results ?? []))
                 view?.loadMore(by: .nowPlaying)
             }
-            _ = interactor?.saveMovieUpcoming(model: nowPlayingMovie)
+            _ = interactor?.saveMovieNowPlaying(model: nowPlayingMovie)
         }
     }
     
@@ -125,7 +125,7 @@ extension MoviePresenter: MovieInteractorToPresenter {
                 popularMovie?.results.append(contentsOf: (model?.results ?? []))
                 view?.loadMore(by: .popular)
             }
-            _ = interactor?.saveMovieUpcoming(model: upcomingMovie)
+            _ = interactor?.saveMoviePopular(model: popularMovie)
         }
     }
 }
