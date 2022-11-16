@@ -68,15 +68,11 @@ extension MovieView: MoviePresenterToView {
         mainTableView.dataSource = self
     }
     
-    func reloadSection(_ section: MainTableViewIndex) {
-        mainTableView.reloadSections([section.value], with: .automatic)
-    }
-    
     func reload() {
         mainTableView.reloadData()
     }
     
-    func loadMore(by mainTableViewIndex: MainTableViewIndex) {
+    func load(by mainTableViewIndex: MainTableViewIndex) {
         switch mainTableViewIndex {
         case .upcoming:
             upcomingTableViewCell?.setData(movieModel: presenter?.upcomingMovie)

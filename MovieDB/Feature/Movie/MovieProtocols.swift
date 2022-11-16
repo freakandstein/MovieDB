@@ -27,9 +27,8 @@ protocol MoviePresenterToView: AnyObject {
     var presenter: MovieViewToPresenter? { get set }
     
     func setupTableView()
-    func reloadSection(_ section: MainTableViewIndex)
     func reload()
-    func loadMore(by mainTableViewIndex: MainTableViewIndex)
+    func load(by mainTableViewIndex: MainTableViewIndex)
     func loadFailed(by mainTableViewIndex: MainTableViewIndex, error: ErrorModel)
 }
 

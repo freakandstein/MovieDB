@@ -15,7 +15,7 @@ final class MoviePresenterTests: XCTestCase {
         var presenter: MovieViewToPresenter?
         
         var isLoadMoreCalled: Bool = false
-        func loadMore(by mainTableViewIndex: MainTableViewIndex) {
+        func load(by mainTableViewIndex: MainTableViewIndex) {
             isLoadMoreCalled = true
         }
         
@@ -24,14 +24,14 @@ final class MoviePresenterTests: XCTestCase {
             isReloadCalled = true
         }
         
-        var isReloadSectionCalled: Bool = false
-        func reloadSection(_ section: MainTableViewIndex) {
-            isReloadSectionCalled = true
-        }
-        
         var isSetupTableViewCalled: Bool = false
         func setupTableView() {
             isSetupTableViewCalled = true
+        }
+        
+        var isLoadFailedCalled: Bool = false
+        func loadFailed(by mainTableViewIndex: MovieDB.MainTableViewIndex, error: MovieDB.ErrorModel) {
+            isLoadMoreCalled = true
         }
     }
     
@@ -197,10 +197,6 @@ final class MoviePresenterTests: XCTestCase {
         sut.view = view
         sut.interactor = interactor
         
-        sut.upcomingMovie = nil
-        sut.didGetMovieUpcoming(model: movie, error: nil)
-        XCTAssertTrue(view.isReloadSectionCalled)
-        
         sut.upcomingMovie = movie
         sut.didGetMovieUpcoming(model: movie, error: nil)
         XCTAssertTrue(view.isLoadMoreCalled)
@@ -217,10 +213,6 @@ final class MoviePresenterTests: XCTestCase {
         interactor.networkMonitoringService = networkMonitorServiceMock
         sut.view = view
         sut.interactor = interactor
-        
-        sut.topRatedMovie = nil
-        sut.didGetMovieTopRated(model: movie, error: nil)
-        XCTAssertTrue(view.isReloadSectionCalled)
         
         sut.topRatedMovie = movie
         sut.didGetMovieTopRated(model: movie, error: nil)
@@ -240,10 +232,6 @@ final class MoviePresenterTests: XCTestCase {
         sut.view = view
         sut.interactor = interactor
         
-        sut.nowPlayingMovie = nil
-        sut.didGetMovieNowPlaying(model: movie, error: nil)
-        XCTAssertTrue(view.isReloadSectionCalled)
-        
         sut.nowPlayingMovie = movie
         sut.didGetMovieNowPlaying(model: movie, error: nil)
         XCTAssertTrue(view.isLoadMoreCalled)
@@ -261,10 +249,6 @@ final class MoviePresenterTests: XCTestCase {
         interactor.networkMonitoringService = networkMonitorServiceMock
         sut.view = view
         sut.interactor = interactor
-        
-        sut.popularMovie = nil
-        sut.didGetMoviePopular(model: movie, error: nil)
-        XCTAssertTrue(view.isReloadSectionCalled)
         
         sut.popularMovie = movie
         sut.didGetMoviePopular(model: movie, error: nil)

@@ -67,32 +67,30 @@ class MoviePresenter: MovieViewToPresenter {
 extension MoviePresenter: MovieInteractorToPresenter {
     func didGetMovieUpcoming(model: MovieModel?, error: ErrorModel?) {
         if let error = error {
-            print(error)
+            view?.loadFailed(by: .upcoming, error: error)
         } else {
             if upcomingMovie == nil {
                 upcomingMovie = model
-                view?.reloadSection(.upcoming)
             } else {
                 upcomingMovie?.page = model?.page ?? .zero
                 upcomingMovie?.results.append(contentsOf: (model?.results ?? []))
-                view?.loadMore(by: .upcoming)
             }
+            view?.load(by: .upcoming)
             _ = interactor?.saveMovieUpcoming(model: upcomingMovie)
         }
     }
     
     func didGetMovieTopRated(model: MovieModel?, error: ErrorModel?) {
         if let error = error {
-            print(error)
+            view?.loadFailed(by: .topRated, error: error)
         } else {
             if topRatedMovie == nil {
                 topRatedMovie = model
-                view?.reloadSection(.topRated)
             } else {
                 topRatedMovie?.page = model?.page ?? .zero
                 topRatedMovie?.results.append(contentsOf: (model?.results ?? []))
-                view?.loadMore(by: .topRated)
             }
+            view?.load(by: .topRated)
             _ = interactor?.saveMovieTopRated(model: topRatedMovie)
         }
     }
@@ -103,12 +101,11 @@ extension MoviePresenter: MovieInteractorToPresenter {
         } else {
             if nowPlayingMovie == nil {
                 nowPlayingMovie = model
-                view?.reloadSection(.nowPlaying)
             } else {
                 nowPlayingMovie?.page = model?.page ?? .zero
                 nowPlayingMovie?.results.append(contentsOf: (model?.results ?? []))
-                view?.loadMore(by: .nowPlaying)
             }
+            view?.load(by: .nowPlaying)
             _ = interactor?.saveMovieNowPlaying(model: nowPlayingMovie)
         }
     }
@@ -119,12 +116,11 @@ extension MoviePresenter: MovieInteractorToPresenter {
         } else {
             if popularMovie == nil {
                 popularMovie = model
-                view?.reloadSection(.popular)
             } else {
                 popularMovie?.page = model?.page ?? .zero
                 popularMovie?.results.append(contentsOf: (model?.results ?? []))
-                view?.loadMore(by: .popular)
             }
+            view?.load(by: .popular)
             _ = interactor?.saveMoviePopular(model: popularMovie)
         }
     }
