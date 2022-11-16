@@ -30,6 +30,7 @@ protocol MoviePresenterToView: AnyObject {
     func reloadSection(_ section: MainTableViewIndex)
     func reload()
     func loadMore(by mainTableViewIndex: MainTableViewIndex)
+    func loadFailed(by mainTableViewIndex: MainTableViewIndex, error: ErrorModel)
 }
 
 protocol MoviePresenterToInteractor: AnyObject {

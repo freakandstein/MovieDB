@@ -88,6 +88,30 @@ extension MovieView: MoviePresenterToView {
             topRatedTableViewCell?.setData(movieModel: presenter?.topRatedMovie)
         }
     }
+    
+    func loadFailed(by mainTableViewIndex: MainTableViewIndex, error: ErrorModel) {
+        var errorMessage: String = .empty
+        switch mainTableViewIndex {
+        case .upcoming:
+            errorMessage = "Up Coming movie: \(errorMessage)"
+        case .popular:
+            errorMessage = "Popular movie: \(errorMessage)"
+        case .nowPlaying:
+            errorMessage = "Now Playing movie: \(errorMessage)"
+        case .topRated:
+            errorMessage = "Top Rated movie: \(errorMessage)"
+        }
+        showError(errorMessage: errorMessage, statusCode: error.statusCode)
+    }
+    
+    private func showError(errorMessage: String, statusCode: Int) {
+        let alertController = UIAlertController(title: "Error \(statusCode)", message: errorMessage, preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            alertController.dismiss(animated: true)
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
 }
 
 extension MovieView: UITableViewDelegate, UITableViewDataSource {
