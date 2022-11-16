@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UICollectionViewCell {
+    
     func shadowDecorate() {
         let radius: CGFloat = 16
         contentView.layer.cornerRadius = radius

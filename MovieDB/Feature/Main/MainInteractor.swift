@@ -10,5 +10,4 @@ import Foundation
 class MainInteractor: MainPresenterToInteractor {
     var presenter: MainInteractorToPresenter?
     var networkService: NetworkService = NetworkService.shared
-    
 }

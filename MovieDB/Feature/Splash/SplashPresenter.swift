@@ -15,7 +15,7 @@ class SplashPresenter: SplashViewToPresenter {
     
     func viewDidLoad() {
         view?.showLoading()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.view?.hideLoading()
             self.router?.navigateToMain()
         }

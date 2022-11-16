@@ -12,7 +12,6 @@ protocol MainViewToPresenter: AnyObject {
     var view: MainPresenterToView? { get set }
     var interactor: MainPresenterToInteractor? { get set }
     var router: MainPresenterToRouter? { get set }
-
 }
 
 protocol MainPresenterToView: AnyObject {
@@ -22,7 +21,6 @@ protocol MainPresenterToView: AnyObject {
 protocol MainPresenterToInteractor: AnyObject {
     var presenter: MainInteractorToPresenter? { get set }
     var networkService: NetworkService { get set }
-    
 }
 
 protocol MainPresenterToRouter: AnyObject {

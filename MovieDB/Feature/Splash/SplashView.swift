@@ -20,7 +20,6 @@ class SplashView: UIViewController {
     
     //MARK: IBoutlets
     
-    
     //MARK: Functions
     init() {
         super.init(nibName: className, bundle: bundle)
@@ -35,7 +34,6 @@ class SplashView: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

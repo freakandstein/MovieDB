@@ -23,6 +23,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
+    //MARK: Functions
     func setupMovieDetail(movieDetailModel: MovieDetailModel?) {
         model = movieDetailModel
         if let urlPathImage = model?.posterPath {
