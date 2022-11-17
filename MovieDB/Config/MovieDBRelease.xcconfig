@@ -1,0 +1,20 @@
+//
+//  MovieDBRelease.xcconfig
+//  MovieDB
+//
+//  Created by Satrio Wicaksono on 17/11/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+// App Configuration
+VERSION_NAME= 1.0.0
+BUILD_NUMBER= 1
+PRODUCT_BUNDLE_IDENTIFIER= com.playground.MovieDB
+PRODUCT_NAME= MovieDB
+TARGETED_DEVICE_FAMILY= 1
+IPHONEOS_DEPLOYMENT_TARGET = 15.0
+
+API_KEY= 408e87ee8bfedf7b2e467adc84df5afa
+BASE_URL= https:/\/\api.themoviedb.org/
+BASE_URL_IMAGE= https:/\/\image.tmdb.org/t/p/w500
