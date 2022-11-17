@@ -1,0 +1,86 @@
+name: MovieDB
+options:
+  deploymentTarget:
+    iOS: $(IPHONEOS_DEPLOYMENT_TARGET)
+packages:
+  Moya:
+    url: https://github.com/Moya/Moya.git
+    majorVersion: 15.0.0
+  Kingfisher:
+    url: https://github.com/onevcat/Kingfisher.git
+    majorVersion: 7.0.0
+  SkeletonView:
+    url: https://github.com/Juanpe/SkeletonView.git
+    majorVersion: 1.7.0
+configs:
+  Debug: debug
+  Release: release
+configFiles:
+  Debug: MovieDB/Config/MovieDBDebug.xcconfig
+  Release: MovieDB/Config/MovieDBRelease.xcconfig
+settings:
+  base:
+    # USER DEFINED PROJECT
+    BUILD_NUMBER: $(BUILD_NUMBER)
+    VERSION_NAME: $(VERSION_NAME)
+    CURRENT_PROJECT_VERSION: $(BUILD_NUMBER)
+    MARKETING_VERSION: $(VERSION_NAME)
+    SDKROOT: iphoneos
+targets:
+  MovieDB:
+    type: application
+    platform: iOS
+    sources:
+      - path: MovieDB
+    dependencies:
+      - package: Moya
+      - package: Kingfisher
+      - package: SkeletonView
+    scheme:
+      testTargets:
+        - MovieDBTests
+    settings:
+      base:
+      # USER DEFINED TARGET
+        INFOPLIST_FILE: MovieDB/Info.plist
+      configs:
+        Debug:
+          PRODUCT_BUNDLE_IDENTIFIER: $(PRODUCT_BUNDLE_IDENTIFIER)
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+          PRODUCT_NAME: $(PRODUCT_NAME)
+          CFBundleDisplayName: $(PRODUCT_NAME)
+        Release:
+          PRODUCT_BUNDLE_IDENTIFIER: $(PRODUCT_BUNDLE_IDENTIFIER)
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: RELEASE
+          PRODUCT_NAME: $(PRODUCT_NAME)
+          CFBundleDisplayName: $(PRODUCT_NAME)
+
+  MovieDBTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: MovieDBTests
+    dependencies:
+      - target: MovieDB
+    settings:
+      base:
+        INFOPLIST_FILE: MovieDB/Info.plist
+schemes:
+  MovieDB: 
+    build:
+      targets:
+        MovieDB: all
+        MovieDBTests: [test]
+    run:
+      config: Debug
+    tests:
+      gatherConverageData: true
+      coverageTargets:
+        - MovieDBTests
+      targets:
+        - name: MovieDBTests
+    profile:
+      config: Debug
+    analyze:
+      config: Debug
+    archive: Debug
