@@ -26,6 +26,7 @@ settings:
     CURRENT_PROJECT_VERSION: $(BUILD_NUMBER)
     MARKETING_VERSION: $(VERSION_NAME)
     SDKROOT: iphoneos
+    INFOPLIST_KEY_UILaunchStoryboardName: LaunchScreen
 targets:
   MovieDB:
     type: application
