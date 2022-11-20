@@ -1,0 +1,1 @@
+xcodegen && open MovieDB.xcodeproj

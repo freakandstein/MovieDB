@@ -32,6 +32,7 @@ targets:
     platform: iOS
     sources:
       - path: MovieDB
+        name: MovieDB
     dependencies:
       - package: Moya
       - package: Kingfisher
@@ -43,28 +44,40 @@ targets:
       base:
       # USER DEFINED TARGET
         INFOPLIST_FILE: MovieDB/Info.plist
+        GENERATE_INFOPLIST_FILE: YES
       configs:
         Debug:
           PRODUCT_BUNDLE_IDENTIFIER: $(PRODUCT_BUNDLE_IDENTIFIER)
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
           PRODUCT_NAME: $(PRODUCT_NAME)
-          CFBundleDisplayName: $(PRODUCT_NAME)
         Release:
           PRODUCT_BUNDLE_IDENTIFIER: $(PRODUCT_BUNDLE_IDENTIFIER)
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: RELEASE
           PRODUCT_NAME: $(PRODUCT_NAME)
-          CFBundleDisplayName: $(PRODUCT_NAME)
 
   MovieDBTests:
     type: bundle.unit-test
     platform: iOS
+    deploymentTarget:
+      iOS: $(IPHONEOS_DEPLOYMENT_TARGET)
     sources:
-      - path: MovieDBTests
+      - MovieDBTests
     dependencies:
       - target: MovieDB
     settings:
+      CODE_SIGN_STYLE: Automatic
       base:
-        INFOPLIST_FILE: MovieDB/Info.plist
+        GENERATE_INFOPLIST_FILE: YES
+      configs:
+        Debug:
+          PRODUCT_NAME: $(PRODUCT_NAME)
+          PRODUCT_MODULE_NAME: $(PRODUCT_NAME)tests
+          TEST_HOST: $(BUILT_PRODUCTS_DIR)/$(PRODUCT_NAME).app/$(PRODUCT_NAME)
+        Release:
+          PRODUCT_NAME: $(PRODUCT_NAME)
+          PRODUCT_MODULE_NAME: $(PRODUCT_NAME)tests
+          TEST_HOST: $(BUILT_PRODUCTS_DIR)/$(PRODUCT_NAME).app/$(PRODUCT_NAME)
+
 schemes:
   MovieDB: 
     build:
@@ -74,6 +87,7 @@ schemes:
     run:
       config: Debug
     tests:
+      config: Debug
       gatherConverageData: true
       coverageTargets:
         - MovieDBTests
