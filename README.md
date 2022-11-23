@@ -4,23 +4,6 @@ Movie DB is an simple app to simulate as movie apps by involving MovieDB open AP
 
 ## Architecture
 Using VIPER (View Interactor Presenter Entity Router).
--MovieDB
---Common
----UI
----Model
-----Main
-----ErrorModel
---Service
----Data
----Network
---Extension
---Helper
---Config
---Feature
----Movie
-----Cell
----Splash
----Main
 
 ## Third Party
 - Moya
@@ -28,9 +11,8 @@ Using VIPER (View Interactor Presenter Entity Router).
 - SkeletonView
 
 ## Installation
-- Open MovieDB.xcodeproj
+- Install xcodegen
+- run ./setup.sh
 - Build (Command + B) in XCode
 - Run (Command + R) in XCode
 - Run for unit test (Command + U) in Xcode
-
-
